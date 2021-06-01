@@ -256,7 +256,8 @@ DB_NAME=webchat                             // nome do database
 - O front-end e o back-end têm que usar a mesma porta - `localhost:3000`;
 
 - O front-end deve gerar um um _nickname_ **aleatório de 16 caracteres** quando um novo cliente se conecta, para identificar quem está enviando a mensagem.
-  - O elemento com o nome do cliente deve conter o `data-testid="online-user"`.
+  - O elemento com o nome do cliente deve conter o `data-testid="online-user"`. 
+  - Este elemento deve ser renderizado como um item de uma lista, pois fará parte de uma lista de usuários que será desenvolvida no requisito 4.
 
 - O front-end deve ter uma caixa de texto através da qual seja possível enviar mensagens para o _chat_:
   - A caixa de texto deve conter o `data-testid="message-box"`;
