@@ -206,6 +206,16 @@ DB_URL=mongodb://localhost:27017/webchat/    // conexão local com o seu MongoDB
 DB_NAME=webchat                             // nome do database
 ```
 
+## Testes
+
+Para executar os testes localmente, você pode rodar o comando `npm test`.
+
+Caso prefira testar um requisito por vez pode executar o teste da seguinte forma: `npm test tests/req1` (nesse caso testa apenas o requisito 1)
+
+⚠️ Antes de executar os testes requisitos, principalmente do requisito 4, feche o seu navegador, pois ele pode afetar a execução dos testes.
+
+⚠️ Os testes sempre vão apagar o banco depois de executar.
+
 ---
 
 # Requisitos do projeto
