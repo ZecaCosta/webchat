@@ -244,7 +244,9 @@ Caso prefira testar um requisito por vez pode executar o teste da seguinte forma
 
 `09-10-2020 2:35:09 PM - Joel: Olá meu caros amigos!`
 
-- O back-end deve enviar a mensagem ao front-end **já formatada**, ela deve ser uma `string`, como no exemplo acima;
+- O back-end deve enviar a mensagem ao front-end **já formatada** ela deve ser uma `string`, como no exemplo acima;
+
+- Tanto o evento enviado do cliente para o servidor, como do servidor para o cliente deve ser **message**.
 
 
 #### As seguintes verificações serão feitas:
