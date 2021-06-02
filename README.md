@@ -214,8 +214,6 @@ Caso prefira testar um requisito por vez pode executar o teste da seguinte forma
 
 ⚠️ Antes de executar os testes requisitos, principalmente do requisito 4, feche o seu navegador, pois ele pode afetar a execução dos testes.
 
-⚠️ Os testes sempre vão apagar o banco depois de executar.
-
 ---
 
 # Requisitos do projeto
