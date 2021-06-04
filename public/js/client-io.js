@@ -17,15 +17,15 @@ document.querySelector('#formSaveNickname').addEventListener('submit', (e) => {
   const newUser = document.querySelector('#nicknameInput').value;
 
   client.emit('sendUserToServer', newUser);
-})
+});
 
 client.on('confirmConnection', (user) => {
-  const newUser = createUser(user)
+  const newUser = createUser(user);
   document.querySelector('#nicknameList').append(newUser);
 });
 
 client.on('newUserConnect', (user) => {
-  const newUser = createUser(user)
+  const newUser = createUser(user);
   document.querySelector('#nicknameList').append(newUser);
 });
 
@@ -35,9 +35,9 @@ document.querySelector('#formSendMessage').addEventListener('submit', (e) => {
   const textMessage = document.querySelector('#messageInput').value;
 
   client.emit('sendMessageToServer', textMessage);
-})
+});
 
-client.on('sendMessageToClients', (message) =>{
-    const newMessageUser = createMessage(message)
+client.on('sendMessageToClients', (message) => {
+    const newMessageUser = createMessage(message);
   document.querySelector('#listMessages').append(newMessageUser);
-})
+});
