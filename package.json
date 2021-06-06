@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --runInBand  --detectOpenHandles --forceExit",
     "test-coverage": "jest --coverage",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "debug": "nodemon server.js",
     "lint": "eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "lint:styles": "stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input"
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "2.8.5",
+    "dateformat": "^4.5.1",
     "dotenv": "8.2.0",
     "ejs": "3.1.5",
     "express": "4.17.1",
