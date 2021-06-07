@@ -55,6 +55,21 @@ const createMessage = (message) => {
   return messageElement;
 };
 
+const getAllMessages = async () => {
+const endpoint = 'http://localhost:3000/messages';
+  const messages = await fetch(endpoint)
+    .then((response) => response.json());
+  messages.map((message) => {
+    const stringMessage = `${message.timestamp} ${message.nickname} ${message.message}`;
+    const newMessage = createMessage(stringMessage);
+    return messagesList.appendChild(newMessage);
+  });
+};
+
+window.onload = function onload() {
+  getAllMessages();
+};
+
 formSendMessage.addEventListener('submit', (e) => {
   e.preventDefault();
   const chatMessage = messageInput.value;

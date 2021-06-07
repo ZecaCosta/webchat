@@ -12,8 +12,11 @@ const io = require('socket.io')(http, {
   },
 });
 
+const messagesModel = require('./models/messagesModel');
+const messagesController = require('./controllers/messagesController');
+
 app.use(express.static(path.join(__dirname, '/view')));
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const usersObj = {};
 let users = [];
@@ -29,10 +32,11 @@ const handleConnect = (nickname, socket) => {
   }
 };
 
-const handleMessage = (chatMessage, nickname) => {
+const handleMessage = async (chatMessage, nickname) => {
   const dateTime = dateFormat(new Date(), 'dd-mm-yyyy hh:MM:ss');
   const messageToClients = `${dateTime} ${nickname} ${chatMessage}`;
   io.emit('message', messageToClients);
+  await messagesModel.createMessage(chatMessage, nickname, dateTime);
 };
 
 const handleDisconnect = (socket) => {
@@ -44,8 +48,9 @@ const handleDisconnect = (socket) => {
   }
 };
 
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
   console.log(`novo usuário conectado! ${socket.id}`);
+  
   socket.on('initialLogin', ({ nickname }) => {
     handleConnect(nickname, socket);
   });
@@ -58,6 +63,8 @@ io.on('connection', (socket) => {
     handleMessage(chatMessage, nickname);
   });
 });
+
+app.get('/messages', messagesController.getAllMessages);
 
 http.listen(PORT, () => {
   console.log('App listening on PORT', PORT);
